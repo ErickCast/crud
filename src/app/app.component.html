@@ -1,0 +1,69 @@
+<div class="container">
+  
+  <div class="header">
+    
+    
+    
+
+  </div>
+  <div class="main" style="margin-top: 20px !important;">
+    <h1 style="text-align: center;">Crud de productos</h1>
+    <div class="insert">
+      
+      <form action="" >
+        <h2>Registra tu producto</h2>
+        <p>
+          <input type="text" name="nombre" id="nombre" [(ngModel)]="model.nombre" placeholder="Nombre...">
+        </p>
+        <p>
+          <input type="number" name="precio" id="" [(ngModel)]="model.precio" placeholder="Precio...">
+        </p>
+        <p>
+          <input type="text" name="marca" id="" [(ngModel)]="model.marca" placeholder="Marca...">
+        </p>
+        <div class="boton">
+        <input type="submit" value="Registrar producto" (click)="addProduct()">
+        </div>
+      </form>
+    </div>
+    <div class="information">
+    <div class="table">
+      <table>
+        <tr class="t-head">
+          <th>Nombre</th>
+          <th>Precio</th>
+          <th>Marca</th>
+          <th>Acciones</th>
+        </tr>
+        <tr *ngFor="let producto of productos; let i = index"> 
+          <td>{{producto.nombre}}</td>
+          <td>{{producto.precio}}</td>
+          <td>{{producto.marca}}</td>
+          <td class="buttons"><button href="#" class="btn btn-editar" (click)="editProduct(i)"><i class="fas fa-pen-square" ></i></button> <button data-id="1" type="button" class="btn btn-borrar" (click)="deleteProduct(i)"><i class="fas fa-trash-alt"></i></button></td>
+          
+        </tr>
+      </table>
+    </div>
+    <div class="edit" [hidden]="hideEdit">
+      <h2>Edita tu producto</h2>
+      <form action="" method="post">
+        <p>
+          <input type="text" name="nombre" id="" [(ngModel)]="model2.nombre" placeholder="Nombre..." value="{{model2.nombre}}">
+        </p>
+        <p>
+          <input type="number" name="precio" id="" [(ngModel)]="model2.precio" placeholder="Precio..." value="{{model2.precio}}">
+        </p>
+        <p>
+          <input type="text" name="marca" id="" [(ngModel)]="model2.marca" placeholder="Marca..." value="{{model2.marca}}">
+        </p>
+        <input type="submit" value="Editar producto" (click)="updateProduct()">
+      </form>
+
+    </div>
+  </div>
+  </div>
+  <div class="footer">
+    <p>Todos los derechos reservados &copy;</p>
+    <p><b>Created by Erick Castillo</b></p>
+  </div>
+</div>
